@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="column is-4 is-offset-4">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification is-success">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <h1 class="title">
+        Узнать IP сервера
+    </h1>
+    <h2 class="subtitle">
+        На слуай переезда данного ресурса
+    </h2>
+    <form method="post">
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <input class="form-control" id="choose" type="text" name="address" placeholder="Выберите сервис…"
+                       value=""
+                       readonly style="text-align:center;">
+            </div>
+        </div>
+
+        <br>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" id="https://ipinfo.io/ip" onclick="choose_site(this.id);"
+                    class="btn btn-outline-dark">
+                ipinfo.io
+            </button>
+            <button type="button" id="https://ifconfig.me/ip" onclick="choose_site(this.id);"
+                    class="btn btn-outline-dark">
+                ifconfig.io
+            </button>
+            <button type="button" id="https://api.ipify.org" onclick="choose_site(this.id);"
+                    class="btn btn-outline-dark">
+                api.ipify.org
+            </button>
+        </div>
+        <p></p>
+        <input type="submit" class="btn btn-primary mb-2" value="Проверить IP">
+
+    </form>
+    <script>
+        function choose_site(id) {
+            document.getElementById('choose').placeholder = id;
+            document.getElementById('choose').value = id;
+        }
+    </script>
+    <h1 class="title">
+        {{ result.ip }}
+    </h1>
+{% endblock %}

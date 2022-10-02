@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  open_redirect:
+    container_name: open_redirect
+    build:
+      context: OpenRedirect
+    ports:
+      - 8081:80
+
+  html_injection:
+    container_name: html_injection
+    build:
+      context: HtmlInjection
+    ports:
+      - 8082:80
+
+  lfi:
+    container_name: lfi
+    build:
+      context: LFI
+    ports:
+      - 8084:80
+
+  ssrf:
+    container_name: ssrf
+    build:
+      context: SSRF
+    ports:
+      - 8085:80
+  directory_taversal:
+    container_name: directory_taversal
+    build:
+      context: DirectoryTraversal
+    ports:
+      - 8086:80

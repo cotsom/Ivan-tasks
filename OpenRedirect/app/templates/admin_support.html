@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="john@doe.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Report</label>
+                        <textarea class="form-control" rows="5" name="report" placeholder="Report"></textarea>
+                    </div>
+                    <div class="clearfix float-right">
+                        <input type="submit" class="btn btn-primary btn-lg" value="Report">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
